@@ -10,24 +10,29 @@ const Signup = (props) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const { name, email, password } = credentials
-        const response = await fetch(`http://localhost:5000/api/auth/createUser`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ name, email, password }) // body data type must match "Content-Type" header
-        });
-        const json = await response.json();
-        console.log(json);
-        if (json.success) {
-            // save the auth token and redirect
-            localStorage.setItem('auth_token', json.auth_token);
-            navigate('/')
-            props.showAlert('Create account Successfully', 'success');
+        const { name, email, password, cpassword } = credentials
+        if (password === cpassword) {
+            const response = await fetch(`http://localhost:5000/api/auth/createUser`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ name, email, password }) // body data type must match "Content-Type" header
+            });
+            const json = await response.json();
+            console.log(json);
+            if (json.success) {
+                // save the auth token and redirect
+                localStorage.setItem('token', json.authtoken);
+                props.showAlert('Create account Successfully', 'success');
+                navigate('/')
+            } else {
+                props.showAlert('Invalid credentials', 'danger');
+            }
         } else {
-            props.showAlert('Invalid credentials', 'danger');
+            props.showAlert('Password and confirm password must be same', 'danger');
         }
+
     }
 
     const onChange = (e) => {
