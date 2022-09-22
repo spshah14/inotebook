@@ -52,7 +52,7 @@ const Login = (props) => {
                                             <div className="d-flex flex-row align-items-center mb-4">
                                                 <i className="fas fa-envelope fa-lg me-3 fa-fw"></i>
                                                 <div className="form-outline flex-fill mb-0">
-                                                    <input type="email" id="email" name='email' className="form-control form-control-lg" placeholder='Enter a valid email address' onChange={onChange} />
+                                                    <input type="email" id="email" name='email' className="form-control form-control-lg" placeholder='Enter Email address' onChange={onChange} />
 
                                                 </div>
                                             </div>
@@ -78,7 +78,7 @@ const Login = (props) => {
                                                 </div>
                                                 <p className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">Don't have an account?
                                                     <Link to="/signup"
-                                                        className="link-primary"> Register</Link></p>
+                                                        className="link-primary mx-1">Register</Link></p>
                                             </div>
 
                                         </form>
