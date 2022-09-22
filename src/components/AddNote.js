@@ -21,23 +21,24 @@ const AddNote = (props) => {
 
     return (
         <div className='container my-3'>
-            <h2>Add a Note</h2>
+            <h2 className="h2 container">Welcome to iNotebook</h2>
             <form className='container my-3'>
                 <div className="mb-3">
-                    <label htmlFor="title" className="form-label">Title</label>
+                    <label htmlFor="title" className="form-label"><b>Title</b></label>
                     <input type="text" className="form-control" id="title" name="title" onChange={onChange} value={note.title} minLength={5} required />
                 </div>
                 <div className="mb-3">
-                    <label htmlFor="description" className="form-label">Description</label>
+                    <label htmlFor="description" className="form-label"><b>Description</b></label>
                     <textarea rows={5} className="form-control" id="description" name='description' onChange={onChange} value={note.description} minLength={5} required />
                 </div>
                 <div className="mb-3">
-                    <label htmlFor="tag" className="form-label">Tag</label>
+                    <label htmlFor="tag" className="form-label"><b>Tag</b></label>
                     <input type="text" className="form-control" id="tag" name='tag' onChange={onChange} value={note.tag} />
                 </div>
 
                 <button disabled={note.title.length < 5 || note.description.length < 5} type="submit" className="btn btn-primary" onClick={handleClick}>Add Note</button>
             </form>
+            <br />
         </div>
     )
 }
