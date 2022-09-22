@@ -1,13 +1,12 @@
 import React, { useState } from 'react'
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const Login = () => {
 
     const [credentials, setCredentials] = useState({ email: '', password: '' })
-    // let history = unstable_HistoryRouter
+
     let navigate = useNavigate()
-    // const navigate = useNavigate()
-    // navigate('/')   
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -34,20 +33,63 @@ const Login = () => {
     }
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <div className="mb-3">
-                    <label htmlFor="email" className="form-label">Email address</label>
-                    <input type="email" className="form-control" id="email" value={credentials.email} name='email' aria-describedby="emailHelp" onChange={onChange} />
-                    <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
-                </div>
-                <div className="mb-3">
-                    <label htmlFor="password" className="form-label">Password</label>
-                    <input type="password" className="form-control" value={credentials.password} name='password' id="password" onChange={onChange} />
-                </div>
+        <div className='container my-5'>
 
-                <button type="submit" className="btn btn-primary">Submit</button>
-            </form>
+            <div className="container h-100">
+                <div className="row d-flex justify-content-center align-items-center h-100">
+                    <div className="col-lg-12 col-xl-11">
+                        <div className="card text-black" style={{ borderRadius: "25px" }}>
+                            <div className="card-body p-md-5">
+                                <div className="row justify-content-center">
+                                    <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+
+                                        <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Login</p>
+
+                                        <form className="mx-1 mx-md-4" onSubmit={handleSubmit}>
+
+
+                                            <div className="d-flex flex-row align-items-center mb-4">
+                                                <i className="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                                                <div className="form-outline flex-fill mb-0">
+                                                    <input type="email" id="email" name='email' className="form-control form-control-lg" placeholder='Enter a valid email address' onChange={onChange} />
+
+                                                </div>
+                                            </div>
+
+                                            <div className="d-flex flex-row align-items-center mb-4">
+                                                <i className="fas fa-lock fa-lg me-3 fa-fw"></i>
+                                                <div className="form-outline flex-fill mb-0">
+                                                    <input type="password" id="password" name='password' className="form-control form-control-lg" placeholder='Enter Password' onChange={onChange} />
+
+                                                </div>
+                                            </div>
+
+                                            <div className="d-flex justify-content-between align-items-center">
+
+                                            </div>
+
+
+
+                                            <div className="text-center text-lg-start mt-4 pt-2">
+
+                                                <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                                                    <button type="submit" className="btn btn-primary btn-lg">Login</button>
+                                                </div>
+                                                <p className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">Don't have an account?
+                                                    <Link to="/signup"
+                                                        className="link-primary"> Register</Link></p>
+                                            </div>
+
+                                        </form>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }
