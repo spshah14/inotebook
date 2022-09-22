@@ -9,7 +9,7 @@ export default function Alert(props) {
         return a.charAt(0).toUpperCase() + a.slice(1);
     }
     return (
-        <div style={{ 'height': '40px' }}>
+        <div style={{ height: '60px', margin: "auto" }}>
             {props.alert && <div className={`alert alert-${props.alert.type} alert-dismissible fade show`} role="alert">
                 <strong>{capitalize(props.alert.type)}</strong>: {props.alert.msg}
             </div>}
